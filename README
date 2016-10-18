@@ -1,0 +1,43 @@
+NAME OF PROJECT : Bc - command
+
+STEP 1 : Run "Makefile"
+
+STEP 2 : type >"./bc"
+
+FEATURES IMPLEMENTED :	1) Additiion 
+				
+			2) Substraction
+
+			3) Multiplication
+				
+				- of integers.
+
+
+FEATURS TO BE IMPLEMENTED :
+
+			1) Division 
+
+			2) Mod
+
+				-of integers.
+
+			3) Additiion 
+				
+			4) Substraction
+
+			5) Multiplication
+			
+			6) Division
+
+			7) Mod
+
+				-of float numbers.
+
+			8) Logic handling.
+
+Note : Errors are yet to be handeled.
+
+
+
+
+

@@ -1,99 +1,67 @@
-#include<stdlib.h>
-#include "functions.h"
-int *addition(int *n1, int *n2) {
-	int i, j, c, *result;
-	i = count_num(n1);
-	j = count_num(n2);
-	c = compare(i, j);
-	result = (int *)malloc(sizeof(int )*1024);
-	if(c == 0) {
-		
-
-		int k, r = 0, temp = 0;
-		while(i > 0) {
-			k = n1[i - 1] + n2[j - 1] + temp;	
-			result[r] = k % 10;
-			temp = k / 10;	
-			i--;
-			j--;
-			r++;
-		}
-		if(temp == 0) {
-		}
-		else if(temp == 1) {
-			result[r] = temp;
-			r++;
-		}
-		result[r] = '?';
-		return result;
+#ifndef __S__
+#define __S__
+//#include "integer.h"
+#include "husefulfunc.h"
+#endif
+Integer AddIntegers(Integer a1, Integer b1) {
+	Integer k, z;
+	k.n = 0;
+	k.a = (int *)malloc(sizeof(int)*SIZE);
+	int i = 0, j = 0, compare, temp = 0;
+	if(a1.sign == '-') {
+		z = SubstractIntegers(b1, a1);
+		return z;
 	}
-			
-	if(c > 0) {
-		
-
-		int k, r = 0, temp = 0;
-		while(j > 0) {
-			k = n1[i - 1] + n2[j - 1] + temp;	
-			result[r] = k % 10;
-			temp = k / 10;	
-			i--;
-			j--;
-			r++;
+	compare = a1.n - b1.n;
+	if(compare >= 0 ) {
+		while(b1.n > 0) {
+			temp = a1.a[a1.n - 1] + b1.a[b1.n - 1] + temp;
+			k.a[i] = temp % 10;
+			temp = temp/10;
+			k.n++;
+			a1.n--;
+			b1.n--;
+			i++;
 		}
-		if(temp == 0) {
-			while(i > 0) {
-				result[r] = n1[i - 1];
-				r++;
-				i--;
-			}
+		while(a1.n > 0) {
+			temp = a1.a[a1.n - 1] + temp;
+			k.a[i] = temp % 10;
+			temp = temp/10;
+			k.n++;
+			i++;
+			a1.n--;			
 		}
-		else if(temp == 1) {
-			result[r] = n1[i - 1] + temp;
-			r++;
-			i--;
+		if(temp != 0) {
+			k.a[i] = temp;
+			k.n++;
+		}
+	z = Reverse(k);
+	return z;
+	}
+	else if(compare < 0 ) {
+		while(a1.n > 0) {
+			temp = a1.a[a1.n - 1] + b1.a[b1.n - 1] + temp;
+			k.a[i] = temp % 10;
+			temp = temp/10;
+			k.n++;
+			a1.n--;
+			b1.n--;
+			i++;
+		}
+		while(b1.n > 0) {
+			temp = b1.a[b1.n - 1] + temp;
+			k.a[i] = temp % 10;
+			temp = temp/10;
+			k.n++;
+			i++;
+			b1.n--;			
+		}
+		if(temp != 0) {
+			k.a[i] = temp;
+			k.n++;
+		}
+	z = Reverse(k);
+	return z;
+	}
 	
-			while(i > 0) {
-				result[r] = n1[i - 1];
-				r++;
-				i--;
-			}
-		}
-		result[r] = '?';
-		return result;
-	}
-
-
-	if(c < 0) {
-		
-
-		int k, r = 0, temp = 0;
-		while(i > 0) {
-			k = n1[i - 1] + n2[j - 1] + temp;	
-			result[r] = k % 10;
-			temp = k / 10;	
-			i--;
-			j--;
-			r++;
-		}
-		if(temp == 0) {
-			while(j > 0) {
-				result[r] = n2[j - 1];
-				r++;
-				j--;
-			}
-		}
-		else if(temp == 1) {
-			result[r] = n2[j - 1] + temp;
-			r++;
-			j--;
-	
-			while(j > 0) {
-				result[r] = n2[j - 1];
-				r++;
-				j--;
-			}
-		}
-		result[r] = '?';
-		return result;
-	}
 }
